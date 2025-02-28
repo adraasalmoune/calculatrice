@@ -1,0 +1,135 @@
+:root {
+    --primary-color: #000000; /* Noir */
+    --secondary-color: #ff69b4; /* Rose vif */
+    --pink-dark: #ff1493; /* Rose foncé */
+    --pink-light: #ffb6c1; /* Rose pâle */
+    --background-color: #1a1a1a; /* Fond noir */
+    --text-color: #ffffff; /* Texte blanc */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(45deg, #ff69b4, #ff1493); /* Dégradé rose */
+    font-family: 'Arial', sans-serif;
+}
+
+.calculator {
+    background: var(--primary-color);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); /* Ombre rose */
+    width: 320px;
+    border: 2px solid var(--secondary-color);
+}
+
+#display {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 24px;
+    text-align: right;
+    border: 2px solid var(--secondary-color);
+    border-radius: 6px;
+    background: var(--background-color);
+    color: var(--secondary-color);
+    transition: all 0.3s;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    background: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: var(--pink-dark);
+    transform: scale(1.05);
+}
+
+.operator {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.equals {
+    background: var(--pink-dark);
+    color: var(--text-color);
+}
+
+.special {
+    background: var(--pink-light);
+    color: var(--primary-color);
+}
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.history-toggle {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.history-toggle:hover {
+    background: var(--pink-dark);
+}
+
+#historyContainer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-top: 10px;
+}
+
+#historyContainer.visible {
+    max-height: 150px;
+}
+
+#history {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#history li {
+    padding: 8px;
+    border-bottom: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    font-size: 14px;
+}
+
+.error {
+    color: #ff4444;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
